@@ -5,6 +5,8 @@ import json
 import time
 import os
 
+PORT = 8181
+
 def setup_solver(): #please body dont sue me
     if not os.path.exists("utils"): os.mkdir("utils")
     files = ["https://raw.githubusercontent.com/Body-Alhoha/turnaround/main/utils/solver.py", "https://raw.githubusercontent.com/Body-Alhoha/turnaround/main/utils/page.html"]
@@ -41,4 +43,4 @@ def make_response(captcha_key):
     return flask.jsonify({"status": "success", "token": captcha_key})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=PORT)
